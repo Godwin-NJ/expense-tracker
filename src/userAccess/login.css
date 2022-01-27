@@ -23,11 +23,11 @@
     margin: 10px;
     margin-left: -15%;
 }
-input{
+.loginIput{
     padding: 10px;
     border-radius: 10px;
 }
-button{
+.loginBtn{
     padding: 10px;
     border-radius: 10px;
     width: 150px;

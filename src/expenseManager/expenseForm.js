@@ -2,6 +2,8 @@
 import React,{useState} from 'react'
 import ExpenseData from './displayExpenseData'
 import { Navigate,useLocation,Link,useNavigate, } from "react-router-dom";
+import './expenseform.css'
+
 
 const ExpenseForm = () => {
     let navigate = useNavigate();
@@ -51,34 +53,36 @@ const ExpenseForm = () => {
     return (
         <div>
             <h2>Expense</h2>
-            <form onSubmit={expenseHandleSubmit}>
+            <form className='expenseForm' onSubmit={expenseHandleSubmit}>
                 {/* description  */}
-                <div>
-                    <label htmlFor='description'>Description</label>
+                <div className='inputSingleContainer' style={{marginRight: '41px'}}>
+                    <label className='expenseLabel' htmlFor='description'>Description</label>
                     <input 
                         type="text"
                         name="description"
                         id="description"
                         value={form.description}
                         onChange={expenseHandleChange}
+                        className='expenseInput'
                     />
                 </div>
 
                 {/* date  */}
-                <div>
-                <label htmlFor='date'>Date</label>
+                <div  className='inputSingleContainer'>
+                <label className='expenseLabel' htmlFor='date'>Date</label>
                     <input 
                         type="text"
                         name="date"
                         id="date"
                         value={form.date}
                         onChange={expenseHandleChange}
+                        className='expenseInput'
                     />
                 </div>
                 {/* category  */}
-                <div>
-                <label htmlFor='category'>Expense Type</label>
-                    <select value={category.value} onChange={dropdownChanged}>
+                <div className='inputSingleContainer' style={{marginRight: '47px'}}>
+                <label className='expenseLabel' htmlFor='category' >Expense Type</label>
+                    <select value={category.value} onChange={dropdownChanged} style={{padding:'5px'}}>
                         <option value="office Supplies" >Office Supplies</option>
                         <option value="training" >Education & Training</option>
                         <option value="Feeding" >Feeding</option>
@@ -90,22 +94,25 @@ const ExpenseForm = () => {
                 </div>
 
                 {/* amount  */}
-                <div>
-                <label htmlFor='amount'>Amount</label>
+                <div className='inputSingleContainer' style={{marginRight: '30px'}}>
+                <label className='expenseLabel' htmlFor='amount'>Amount</label>
                     <input 
                         type="number"
                         name="amount"
                         id="amount"
                         value={form.amount}
                         onChange={expenseHandleChange}
+                        className='expenseInput'
                     />
                 </div>
-
+                <div className='inputSingleContainer'>
                 <input type="submit" value="Submit" />
+                </div>
+               
             </form>
 
             < ExpenseData user={user}/>
-            <button onClick={() => logOut()}>Logout</button>
+            <button className='btnLogOut' onClick={() => logOut()}>Logout</button>
         </div>
     )
 }

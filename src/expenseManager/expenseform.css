@@ -1,0 +1,40 @@
+
+
+.expenseForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 0px auto;
+    border: 0px solid black;
+    width: 70vw;
+    padding: 30px;
+    height: 25vh;
+    border-radius: 5px;
+    background-color: rgb(245, 238, 238);
+    /* flex-wrap:wrap */
+    /* justify-content:center */
+}
+
+.expenseInput{ 
+    padding: 5px;
+    margin: 0 auto; 
+    border-radius: 5px;
+}
+
+.expenseLabel{
+    margin: 10px;
+}
+
+.btnLogOut{
+    margin-left: 65vw ;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 70px;
+}
+
+
+.inputSingleContainer{
+    margin-left: -15%;
+}
