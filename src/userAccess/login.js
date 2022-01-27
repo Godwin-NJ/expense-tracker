@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 
 import axios from 'axios'
 import { Navigate,useLocation,Link } from "react-router-dom";
+import './login.css'
 
 const Login = () => {
    
@@ -54,15 +55,18 @@ const Login = () => {
     return (
         <div>
             
-        < form onSubmit={handleSubmit}>
+        < form className='form' onSubmit={handleSubmit}>
             {/* username  */}
-            <label htmlFor="userName">userName</label>
+            <div className='inputDetails'>
+            <label htmlFor="userName" className='label'>userName</label>
             <input type="text" name="userName" value={userForm.userName} onChange={handleChange}/>
-
+            </div>
             {/* password  */}
-            <label htmlFor="pasword">password</label>
-            <input type="text" name="password" value={userForm.password} onChange={handleChange}/>
-
+            <div className='inputDetails'>
+            <label htmlFor="pasword" className='label'>password</label>
+            <input type="password" name="password" value={userForm.password} onChange={handleChange}/>
+            </div>
+            
             <button type="submit" >LOGIN</button>
         </form>
 

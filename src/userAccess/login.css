@@ -1,0 +1,35 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap:wrap; */
+    align-items: center;
+    gap: 30px;
+    margin: 0 auto;
+    margin-top: 25vh;
+    padding: 5%;
+    border: 0px solid rgb(139, 128, 187);
+    background-color: rgb(68, 65, 77);
+    color: white;
+    border-radius: 10px;
+    width: 40%;
+    height: 30vh;
+}
+
+.label{
+    margin: 10px;
+}
+
+.inputDetails{
+    margin: 10px;
+    margin-left: -15%;
+}
+input{
+    padding: 10px;
+    border-radius: 10px;
+}
+button{
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    /* width: 30%; */
+}
