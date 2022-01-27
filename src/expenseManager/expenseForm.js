@@ -1,10 +1,10 @@
 
 import React,{useState} from 'react'
 import ExpenseData from './displayExpenseData'
-
+import { Navigate,useLocation,Link,useNavigate, } from "react-router-dom";
 
 const ExpenseForm = () => {
-
+    let navigate = useNavigate();
     // const [date, setDate] = useState('')
     // const [description, setDescription] = useState('')
     const [category, setCategory] = useState({value :'feeding'})
@@ -41,7 +41,11 @@ const ExpenseForm = () => {
         }
     //    return alert('provide information')
         
-        
+    }
+
+    function logOut(){
+        localStorage.removeItem('token')
+        navigate('/')
     }
 
     return (
@@ -101,7 +105,7 @@ const ExpenseForm = () => {
             </form>
 
             < ExpenseData user={user}/>
-
+            <button onClick={() => logOut()}>Logout</button>
         </div>
     )
 }

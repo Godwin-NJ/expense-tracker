@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-const displayExpenseData = ({user}) => {
+const DisplayExpenseData = ({user}) => {
+
     return (
         <div>
             {user.map((person,i) => {
@@ -18,4 +19,4 @@ const displayExpenseData = ({user}) => {
     )
 }
 
-export default displayExpenseData
+export default DisplayExpenseData

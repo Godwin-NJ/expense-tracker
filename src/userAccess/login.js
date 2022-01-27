@@ -1,27 +1,54 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
+import axios from 'axios'
+import { Navigate,useLocation,Link } from "react-router-dom";
 
 const Login = () => {
+   
+    let location = useLocation();
 
-    const[user, setUser] = useState({
+    const[userForm, setUserForm] = useState({
         userName: "",
         password:""
     })
 
-    const [person,setPerson] = useState('')
+    // const [person,setPerson] = useState('')
+    const [token, setToken] = useState(null)
 
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setUser({...user,[name]: value})
+        setUserForm({...userForm,[name]: value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        const newUser = {...user}
-        setPerson([...person, newUser])
-        setUser({userName: "",password:""})
+        try {
+           const {data:user} = await axios.post('/api/v1/user/login',userForm)
+           localStorage.setItem('token', user.token)
+           const userKey = localStorage.getItem('token')
+            // console.log(userKey)
+            if(!userKey){
+                console.log('user data is wrong')
+                return
+            }
+            setToken(userKey)
+        } catch (error) {
+            console.log(error)
+        }
+        // const userLogin = await axios.post('api/v1/user/login',user)
+        // console.log(userLogin)
+        // const userData = 
+
+        // const newUser = {...user}
+        // setPerson([...person, newUser])
+        // setUser({userName: "",password:""})
+    }
+
+    if(token){
+      return  <Navigate  to="/expense"  replace/>
+        // <Link to="/expense"></Link>
     }
 
     return (
@@ -29,14 +56,14 @@ const Login = () => {
             
         < form onSubmit={handleSubmit}>
             {/* username  */}
-            <label id="userName">userName</label>
-            <input type="text" name="userName" value={user.userName} onChange={handleChange}/>
+            <label htmlFor="userName">userName</label>
+            <input type="text" name="userName" value={userForm.userName} onChange={handleChange}/>
 
             {/* password  */}
-            <label id="pasword">password</label>
-            <input type="text" name="password" value={user.password} onChange={handleChange}/>
+            <label htmlFor="pasword">password</label>
+            <input type="text" name="password" value={userForm.password} onChange={handleChange}/>
 
-            <input type="submit" value="submit" />
+            <button type="submit" >LOGIN</button>
         </form>
 
         </div>
