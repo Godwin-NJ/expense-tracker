@@ -8,17 +8,12 @@ import axios from "axios";
 
 const ExpenseForm = () => {
     let navigate = useNavigate();
-    // const [date, setDate] = useState('')
-    // const [description, setDescription] = useState('')
-    // commented this 
     const [category, setCategory] = useState({expenseType :''})
-    // const [amount, setAmount] = useState('')
-
+    
     const[form, setForm] = useState({
         title : "",
         date : "",
         amount : "",
-        // expenseType :""
     })
 
     const [user,setUser] = useState({})
@@ -28,7 +23,6 @@ const ExpenseForm = () => {
         const name = e.target.name
         const value = e.target.value
         setForm({...form, [name] : value})
-        // setCategory({expenseType : e.target.value})
     }
 
    function dropdownChanged(e){
@@ -53,15 +47,6 @@ const ExpenseForm = () => {
         setUser(data)
         setForm({title : "", date : "",amount : ""})
         setCategory({expenseType:""})
-        // if(form.title && form.date && form.amount && category.expenseType){
-        //     const expenseDispatch = 
-        //     {...form,...category, timeStamp : new Date().getTime().toString()}
-        //     setUser([...user,expenseDispatch])  
-        //     setForm({title : "", date : "",amount : ""})
-        //     setCategory({value:""})
-        // }
-    //    return alert('provide information')
-        
     }
 
     function logOut(){
@@ -130,7 +115,13 @@ const ExpenseForm = () => {
                
             </form>
 
-            {/* < ExpenseData user={user}/> */}
+        
+                <button onClick={() =>navigate('/expenseJournal')} >
+                    {/* <Link to="/expenseJournal" element={user} > */}
+                        expense-Journal
+                    {/* </Link> */}
+                </button>
+              
             <button className='btnLogOut' onClick={() => logOut()}>Logout</button>
         </div>
     )
