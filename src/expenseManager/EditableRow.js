@@ -1,6 +1,8 @@
 import React from 'react';
 
-function EditableRow({handleEditFormChange,editFormData,handleCancelClick}) {
+function EditableRow({handleEditFormChange,editFormData,handleCancelClick,updateExpense}) {
+  // console.log(editFormData)
+ 
   return(
       <tr>
           <td>
@@ -44,8 +46,8 @@ function EditableRow({handleEditFormChange,editFormData,handleCancelClick}) {
               />
           </td>
           <td>
-          <button type="submit">save</button>
-            <button type="submit" onClick={handleCancelClick}>
+          <button type="submit" >Update</button>
+            <button type="button" onClick={handleCancelClick}>
                 Cancel
             </button>
           </td>

@@ -1,7 +1,7 @@
 
 import React,{useState} from 'react'
-import ExpenseData from './displayExpenseData'
-import { Navigate,useLocation,Link,useNavigate, } from "react-router-dom";
+// import ExpenseData from './displayExpenseData'
+import { useNavigate, } from "react-router-dom";
 import './expenseform.css'
 import axios from "axios";
 
@@ -38,8 +38,12 @@ const ExpenseForm = () => {
         }
         // const expenseDispatch = {...form,...category}
         setUser({...form,...category})
+        const token = localStorage.getItem('token')
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
       
-        const data = await axios.post('/api/v1/expense',user)
+        const data = await axios.post('/api/v1/expense',user,config)
         if(!data){
             console.log('error getting expense data')
             return

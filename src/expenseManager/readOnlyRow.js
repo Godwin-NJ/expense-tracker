@@ -1,7 +1,7 @@
 import React from 'react';
 
-const readOnlyRow = ({expense,handleEditClick,deleteContact}) => {
-    const {_id,amount,date,expenseType,title} = expense;
+const readOnlyRow = ({expense,handleEditClick,deleteContact,deleteExpense}) => {
+    const {_id: expenseID,amount,date,expenseType,title} = expense;
 
   return (
       <tr>
@@ -11,7 +11,10 @@ const readOnlyRow = ({expense,handleEditClick,deleteContact}) => {
             <td>{date}</td>
             <td>
                 <button onClick={(e) => handleEditClick(e,expense)}>Edit</button>
-                <button onClick={() => deleteContact(_id)}>Delete</button>
+                {/* <button onClick={() => deleteContact(_id)}>Delete</button> */}
+                <button type="button" onClick={() => deleteExpense(expenseID)}>
+                    Delete
+                </button>
             </td>
       </tr>
   );
