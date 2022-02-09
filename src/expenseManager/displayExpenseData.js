@@ -12,7 +12,7 @@ const DisplayExpenseData = () => {
     const[modalOpen, setModalOpen] = useState(false);
     const [currentId, setCurrentId] = useState(null)
 
-    const[editableContactId, setEditableContactId] = useState(null)
+    // const[editableContactId, setEditableContactId] = useState(null)
 
     const[editFormData, setEditFormData] = useState({
         amount:"",
@@ -51,7 +51,7 @@ const DisplayExpenseData = () => {
     const handleEditFormChangeSam = (e) => {
         const name = e.target.name;
         const value = e.target.value
-        setEditFormData((prev) =>( {...prev, [name]: value}))
+        setEditFormData({...editFormData, [name]: value})
     }
 
     // const handleEditClick = (e,expense) => {
@@ -230,7 +230,8 @@ const DisplayExpenseData = () => {
                                 handleEditFormChangeSam={handleEditFormChangeSam}
                                 editFormData={editFormData}
                                 setEditFormData={setEditFormData}
-                                
+                                setCurrentId={setCurrentId}
+                               
                             />}
                         </td>
                     </tr>

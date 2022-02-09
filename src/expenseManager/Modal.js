@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 
-const Modal = ({setModal,editFormData,setEditFormData, data: d,handleEditFormChangeSam}) => {
+const Modal = ({setModal,setCurrentId,editFormData,setEditFormData, data: d,handleEditFormChangeSam}) => {
    console.log(d,d._id)
    console.log('modaledit',editFormData)
   
@@ -28,7 +28,9 @@ const Modal = ({setModal,editFormData,setEditFormData, data: d,handleEditFormCha
             headers: { Authorization: `Bearer ${token}` }
         };
         const expenseUpdate = await axios.patch(`/api/v1/expense/${d._id}`,editFormData,config)
-        setEditFormData(expenseUpdate.data)
+        // setEditFormData(expenseUpdate.data)
+        setModal('false')
+        setCurrentId(null)
         console.log('handleUpdate',expenseUpdate.data)
     }
   return (
