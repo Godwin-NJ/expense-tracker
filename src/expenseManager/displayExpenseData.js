@@ -10,7 +10,7 @@ const DisplayExpenseData = () => {
     let navigate = useNavigate();
     const[expense, setExpense] = useState([])
     const[modalOpen, setModalOpen] = useState(false);
-    const [currentId, setCurrentId] = useState(0)
+    const [currentId, setCurrentId] = useState(null)
 
     const[editableContactId, setEditableContactId] = useState(null)
 
@@ -30,7 +30,7 @@ const DisplayExpenseData = () => {
                 const response = await axios.get('/api/v1/expense', 
                     {headers : {"Authorization" : `Bearer ${token}`}}
                 )
-                console.log('response', response)
+                // console.log('response', response)
                 const data = response.data.allExpense
                 setExpense(data)
                
@@ -42,94 +42,107 @@ const DisplayExpenseData = () => {
     },[])
     console.log('exp',expense)
 
-    const handleEditFormChange = (e) => {
-        e.preventDefault()
+    // const handleEditFormChange = (e) => {
+    //     e.preventDefault()
+    //     const name = e.target.name;
+    //     const value = e.target.value
+    //     setEditFormData({...editFormData, [name]: value})
+    // }
+    const handleEditFormChangeSam = (e) => {
         const name = e.target.name;
         const value = e.target.value
-        setEditFormData({...editFormData, [name]: value})
+        setEditFormData((prev) =>( {...prev, [name]: value}))
     }
 
-    const handleEditClick = (e,expense) => {
-        e.preventDefault()
-        console.log('expense',expense)
+    // const handleEditClick = (e,expense) => {
+    //     e.preventDefault()
+    //     console.log('expense',expense)
+    //     // console expense to see what it is
+    //     // console.log(expense._id)
+    //     setEditableContactId(expense._id)
+
+    //     const EditExistingData = {
+    //         amount: expense.amount,
+    //         date : expense.date,
+    //         expenseType : expense.expenseType,
+    //         title : expense.title
+    //       }
+
+    //       setEditFormData(EditExistingData)
+    // }
+
+    const handleEditClickSam = (expense) => {
+        // e.preventDefault()
+        // console.log('expense',expense)
         // console expense to see what it is
         // console.log(expense._id)
-        setEditableContactId(expense._id)
+        setModalOpen(true)
+        setCurrentId(expense._id)
+        // console.log(expense._id)
 
-        const EditExistingData = {
+        const EditExistingExpense = {
             amount: expense.amount,
             date : expense.date,
             expenseType : expense.expenseType,
             title : expense.title
           }
 
-          setEditFormData(EditExistingData)
+        //   console.log(EditExistingExpense)
+
+          setEditFormData(EditExistingExpense)
     }
+    // console.log(currentId)
+   
 
-    const handleEditFormSubmit = (e) => {
-        e.preventDefault()
-        const editExpense = {
-            _id : editableContactId,
-            amount:editFormData.amount,
-            date: editFormData.date,
-            expenseType:editFormData.expenseType,
-            title:editFormData.title
-        }
+    // const handleEditFormSubmit = (e) => {
+    //     e.preventDefault()
+    //     const editExpense = {
+    //         _id : editableContactId,
+    //         amount:editFormData.amount,
+    //         date: editFormData.date,
+    //         expenseType:editFormData.expenseType,
+    //         title:editFormData.title
+    //     }
 
-        const newExpense = [...expense]
-        const index = expense.findIndex((user) =>{
-            return user._id === editableContactId
-        })
+    //     const newExpense = [...expense]
+    //     const index = expense.findIndex((user) =>{
+    //         return user._id === editableContactId
+    //     })
 
-        newExpense[index] = editExpense
-        setExpense(newExpense)
-        setEditableContactId(null)
+    //     newExpense[index] = editExpense
+    //     setExpense(newExpense)
+    //     setEditableContactId(null)
 
-    }
+    // }
 
-    const updateExpense =async (e) => {
-        e.preventDefault()
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };
+    // const updateExpense =async (e) => {
+    //     e.preventDefault()
+    //     const config = {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     };
 
         
-
-        // const editExpense = {
-        //     _id : editableContactId,
-        //     amount:editFormData.amount,
-        //     date: editFormData.date,
-        //     expenseType:editFormData.expenseType,
-        //     title:editFormData.title
-        // }
-
-        // const newExpense = [...expense]
-        // const index = expense.findIndex((user) =>{
-        //     return user._id === editableContactId
-        // })
-
-        // newExpense[index] = editExpense
     
 
-        try {
-            // console.log(editExpense)
-            // const updateExpense =await axios.patch(`/api/v1/expense/${expenseID}`,editExpense, config)
-            // console.log(updateExpense)
-            // setExpense(updateExpense)
-            // setEditableContactId(null)
+    //     try {
+    //         console.log(editExpense)
+    //         const updateExpense =await axios.patch(`/api/v1/expense/${expenseID}`,editExpense, config)
+    //         console.log(updateExpense)
+    //         setExpense(updateExpense)
+    //         setEditableContactId(null)
            
            
-        } catch (error) {
-            if(error.respose){
-                console.log(error)
-            }
+    //     } catch (error) {
+    //         if(error.respose){
+    //             console.log(error)
+    //         }
             
-        }
+    //     }
        
-      }
+    //   }
 
     const handleCancelClick = () => {
-        setEditableContactId(null)
+        setCurrentId(null)
     }
 
     // const deleteContact = (expenseID) => {
@@ -139,16 +152,17 @@ const DisplayExpenseData = () => {
     //     setExpense(newExpense)
     //   }
 
-      const deleteExpense =async (expenseID) => {
+      const deleteExpense =async (id) => {
         // const newExpense = [...expense]
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
         try {
-            const deleteData = await axios.delete(`/api/v1/expense/${expenseID}`, config)
-            
-            const data = setExpense(expense => expense !== deleteData)
-            setExpense([...data])
+            const deleteData = await axios.delete(`/api/v1/expense/${id}`, config)
+            setCurrentId(null)
+            console.log(deleteData)
+            // const data = setExpense(expense => expense !== deleteData)
+            // setExpense([...data])
         } catch (error) {
             console.log(error)
         }
@@ -198,12 +212,26 @@ const DisplayExpenseData = () => {
                         <td>
                             <button 
                                 type='button' 
-                                onClick={()=>{setModalOpen(true); setCurrentId(_id)}}
+                                onClick={() => handleEditClickSam(expenseData)}
+                                // onClick={()=>{setModalOpen(true); 
+                                //     // setCurrentId(_id)
+                                //     // the below is setting currentId as _id 
+                                //     handleEditClickSam()
+                                // }}
                             >
                                 Edit
                             </button>
-                            <button type="submit">Delete</button>
-                            {(modalOpen === true && currentId ===_id) && <Modal setModal={setModalOpen} data={expenseData} />}
+                            <button type="button" onClick={() => deleteExpense(_id)}>Delete</button>
+                            {(modalOpen === true && currentId ===_id) 
+                                && 
+                            <Modal 
+                                setModal={setModalOpen}  
+                                data={expenseData} 
+                                handleEditFormChangeSam={handleEditFormChangeSam}
+                                editFormData={editFormData}
+                                setEditFormData={setEditFormData}
+                                
+                            />}
                         </td>
                     </tr>
                
