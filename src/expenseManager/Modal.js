@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from "axios";
 
 const Modal = ({setModal, data: d}) => {
-   console.log(d)
+   console.log(d,d._id)
+  
+   const token = localStorage.getItem('token')
 
     const [data, setData]= React.useState({
         expenseType: d.expenseType,
@@ -18,8 +21,14 @@ const Modal = ({setModal, data: d}) => {
         })
         
     }
-    const handleUpdate = ()=>{
-
+    const handleUpdate = async()=>{
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        const expenseUpdate = await axios.patch(`/api/v1/expense/${d._id}`,data,config)
+        setData(expenseUpdate.data)
+        console.log('handleUpdate',expenseUpdate.data)
+        
     }
   return (
     <div className='modal'>

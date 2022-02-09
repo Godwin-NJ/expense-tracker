@@ -203,7 +203,7 @@ const DisplayExpenseData = () => {
                                 Edit
                             </button>
                             <button type="submit">Delete</button>
-                            {(modalOpen === true && currentId === _id) && <Modal setModal={setModalOpen} data={expenseData} />}
+                            {(modalOpen === true && currentId ===_id) && <Modal setModal={setModalOpen} data={expenseData} />}
                         </td>
                     </tr>
                
