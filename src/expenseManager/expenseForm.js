@@ -59,12 +59,14 @@ const ExpenseForm = () => {
     }
 
     return (
-        <div>
-            <h2>Expense</h2>
+    <div >
+        <section className='expenseFOrmCover'>
+            <h2 className='expenseTitle'>Expense Entry Card</h2>
             <form className='expenseForm' onSubmit={expenseHandleSubmit}>
                 {/* description  */}
-                <div className='inputSingleContainer' style={{marginRight: '41px'}}>
-                    <label className='expenseLabel' htmlFor='title'>Description</label>
+                {/* <div className='inputSingleContainer' style={{marginRight: '41px'}}> */}
+                    <label className='expenseLabel' htmlFor='title'>
+                        <span className='descHeader'>Description</span>
                     <input 
                         type="text"
                         name="title"
@@ -73,11 +75,13 @@ const ExpenseForm = () => {
                         onChange={expenseHandleChange}
                         className='expenseInput'
                     />
-                </div>
+                    </label>
+                {/* </div> */}
 
                 {/* date  */}
-                <div  className='inputSingleContainer'>
-                <label className='expenseLabel' htmlFor='date'>Date</label>
+                {/* <div  className='inputSingleContainer'> */}
+                <label className='expenseLabel' htmlFor='date'>
+                    <span className='descHeader'>Date</span>
                     <input 
                         type="text"
                         name="date"
@@ -86,11 +90,13 @@ const ExpenseForm = () => {
                         onChange={expenseHandleChange}
                         className='expenseInput'
                     />
-                </div>
+                    </label>
+                {/* </div> */}
                 {/* category  */}
-                <div className='inputSingleContainer' style={{marginRight: '47px'}}>
-                <label className='expenseLabel' htmlFor='category' >Expense Type</label>
-                    <select value={category.expenseType} onChange={dropdownChanged} style={{padding:'5px'}}>
+                {/* <div className='inputSingleContainer' style={{marginRight: '47px'}}> */}
+                <label className='expenseLabel' htmlFor='category' >
+                        <span className='descHeader'>Expense Type</span>
+                    <select value={category.expenseType} onChange={dropdownChanged} className="optionSection">
                    
                         <option value="office supplies" >office supplies</option>
                         <option value="Education|training" >Education|training</option>
@@ -99,11 +105,13 @@ const ExpenseForm = () => {
                         <option value="transport">transport</option>    
                      
                     </select>
-                </div>
+                    </label>
+                {/* </div> */}
 
                 {/* amount  */}
-                <div className='inputSingleContainer' style={{marginRight: '30px'}}>
-                <label className='expenseLabel' htmlFor='amount'>Amount</label>
+                {/* <div className='inputSingleContainer' style={{marginRight: '30px'}}> */}
+                <label className='expenseLabel' htmlFor='amount'>
+                    <span className='descHeader'>Amount</span>
                     <input 
                         type="number"
                         name="amount"
@@ -112,22 +120,25 @@ const ExpenseForm = () => {
                         onChange={expenseHandleChange}
                         className='expenseInput'
                     />
-                </div>
-                <div className='inputSingleContainer'>
-                <input type="submit" value="Submit" />
-                </div>
+                    </label>
+                {/* </div> */}
+                {/* <div className='inputSingleContainer'> */}
+                <input className='submitInput' type="submit" value="Submit" />
+                {/* </div> */}
                
             </form>
 
-        
-                <button onClick={() =>navigate('/expenseJournal')} >
-                    {/* <Link to="/expenseJournal" element={user} > */}
-                        expense-Journal
-                    {/* </Link> */}
+                <div className='btnExpenseJournal-LogOut'>
+                <button className='btnFooter'  onClick={() =>navigate('/expenseJournal')} >
+                         Posted Expense
                 </button>
               
-            <button className='btnLogOut' onClick={() => logOut()}>Logout</button>
-        </div>
+                <button className='btnFooter' onClick={() => logOut()}>
+                    Logout
+                </button>
+                </div>
+        </section>
+    </div>
     )
 }
 

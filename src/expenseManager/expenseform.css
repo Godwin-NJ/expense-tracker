@@ -1,21 +1,40 @@
 
 
+section.expenseFOrmCover {
+    background-color: rgb(239 239 239);
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.expenseTitle{
+    margin-left: 100px;
+}
+
 .expenseForm{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    margin: 0px auto;
-    border: 0px solid black;
+    /* gap: 15px; */
+    margin: 5px auto;
+    border: 1px solid black;
     width: 70vw;
     padding: 30px;
-    height: 25vh;
-    border-radius: 5px;
-    background-color: rgb(245, 238, 238);
+    height: 35vh;
+    /* border-radius: 5px; */
+    background-color: rgb(169 187 233);
     /* flex-wrap:wrap */
-    /* justify-content:center */
+    justify-content:center
 }
 
+.optionSection{
+    padding: 5px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.descHeader{
+    margin-left: 10px;
+}
 .expenseInput{ 
     padding: 5px;
     margin: 0 auto; 
@@ -23,18 +42,37 @@
 }
 
 .expenseLabel{
-    margin: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.btnLogOut{
-    margin-left: 65vw ;
-    margin-top: 20px;
+.btnExpenseJournal-LogOut {
+    border: 0px solid black;
+    display: flex;
+    flex-direction: row;
+    gap: 220px;
+    justify-content: space-evenly;
+    margin: 10px auto;
+    padding: 25px;
+}
+
+.btnFooter {
     padding: 5px;
+    width: 150px;
     border-radius: 5px;
-    width: 70px;
+}
+
+.submitInput{
+    width: 170px;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 3px;
+    color: white;
+    background-color: blue;
 }
 
 
-.inputSingleContainer{
-    margin-left: -15%;
-}
+
+

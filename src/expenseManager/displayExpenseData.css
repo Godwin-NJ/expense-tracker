@@ -1,0 +1,38 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  th {
+    background-color: rgb(117, 201, 250);
+  }
+  
+  td {
+    background-color: rgb(205, 235, 253);
+  }
+
+  .dataBTN{
+    margin: 5px;
+    width: 70px;
+  }
+  .rtnExpense{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px
+  }
+
+  .scrollBehaviorTable {
+    /* scroll-behavior: smooth; */
+    overflow-y: scroll;
+    display: block;
+    overflow-y: scroll;
+    height: 88vh;
+}

@@ -1,9 +1,10 @@
 import React,{Fragment, useEffect, useState} from 'react'
 import axios from "axios";
-import ReadOnlyRow from './readOnlyRow';
-import EditableRow from './EditableRow';
+// import ReadOnlyRow from './readOnlyRow';
+// import EditableRow from './EditableRow';
 import { useNavigate, } from "react-router-dom";
 import Modal from './Modal';
+import './displayExpenseData.css'
 
 
 const DisplayExpenseData = () => {
@@ -182,12 +183,8 @@ const DisplayExpenseData = () => {
 
     return (
     <div className="app-container">
-        <button type="button" onClick={() =>navigate('/expense')}> 
-            Return to Expense form
-        </button>
-      
       {/* <form> */}
-        <table>
+        <table className='scrollBehaviorTable'>
             <thead>
                 <tr>
                     <th>Expense-Type</th>
@@ -209,9 +206,10 @@ const DisplayExpenseData = () => {
                         <td>{title}</td>
                         <td>{amount}</td>
                         <td>{date}</td>
-                        <td>
+                        <td >
                             <button 
                                 type='button' 
+                                className='dataBTN'
                                 onClick={() => handleEditClickSam(expenseData)}
                                 // onClick={()=>{setModalOpen(true); 
                                 //     // setCurrentId(_id)
@@ -221,7 +219,13 @@ const DisplayExpenseData = () => {
                             >
                                 Edit
                             </button>
-                            <button type="button" onClick={() => deleteExpense(_id)}>Delete</button>
+                            <button 
+                                type="button" 
+                                className='dataBTN'
+                                onClick={() => deleteExpense(_id)}
+                            >
+                                Delete
+                            </button>
                             {(modalOpen === true && currentId ===_id) 
                                 && 
                             <Modal 
@@ -241,6 +245,12 @@ const DisplayExpenseData = () => {
                 })}
             </tbody>
         </table>
+        <button 
+            className='rtnExpense' 
+            type="button" onClick={() =>navigate('/expense')}
+        > 
+            Expense Form
+        </button>
     </div>
     )
 }

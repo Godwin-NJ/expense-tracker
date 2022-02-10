@@ -1,0 +1,32 @@
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+  
+  }
+  .modal-wrap{
+    width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 30px;
+  }
+
+  .form-group {
+    padding: 5px;
+}
+
+.modalInput{
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btnModal{
+    padding: 5px;
+    /* width: 100px; */
+    /* background-color: #99c7f3; */
+    color: black;
+    font-size: 15px;
+}

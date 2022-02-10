@@ -38,13 +38,6 @@ const Login = () => {
         } catch (error) {
             console.log(error)
         }
-        // const userLogin = await axios.post('api/v1/user/login',user)
-        // console.log(userLogin)
-        // const userData = 
-
-        // const newUser = {...user}
-        // setPerson([...person, newUser])
-        // setUser({userName: "",password:""})
     }
 
     if(token){
@@ -53,24 +46,40 @@ const Login = () => {
     }
 
     return (
-        <div>
-            
-        < form className='form' onSubmit={handleSubmit}>
-            {/* username  */}
-            <div className='inputDetails'>
-            <label htmlFor="userName" className='label'>userName</label>
-            <input className='loginIput' type="text" name="userName" value={userForm.userName} onChange={handleChange}/>
-            </div>
-            {/* password  */}
-            <div className='inputDetails'>
-            <label htmlFor="pasword" className='label'>password</label>
-            <input className='loginIput' type="password" name="password" value={userForm.password} onChange={handleChange}/>
-            </div>
+    <div >
 
-            <button className='loginBtn' type="submit" >LOGIN</button>
-        </form>
+       <section className='loginSection'>
+          <h2 className='loginHeader'>Welcome CHAMP </h2>
 
-        </div>
+            < form className='form' onSubmit={handleSubmit}>
+                {/* username  */}
+                <div className='inputDetails'>
+                <label htmlFor="userName" className='label'>UserName</label>
+                <input 
+                    className='loginIput' 
+                    placeholder='username'
+                    type="text"
+                    name="userName" value={userForm.userName} 
+                    onChange={handleChange}
+                />
+                </div>
+                {/* password  */}
+                <div className='inputDetails'>
+                <label htmlFor="pasword" className='label'>Password</label>
+                <input 
+                    className='loginIput' 
+                    placeholder='password'
+                    type="password" 
+                    name="password" 
+                    value={userForm.password} 
+                    onChange={handleChange}
+                />
+                </div>
+
+                <button className='loginBtn' type="submit" >LOGIN</button>
+            </form>
+        </section>
+    </div>
     )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import './modal.css'
 
 const Modal = ({setModal,setCurrentId,editFormData,setEditFormData, data: d,handleEditFormChangeSam}) => {
    console.log(d,d._id)
@@ -36,25 +37,25 @@ const Modal = ({setModal,setCurrentId,editFormData,setEditFormData, data: d,hand
   return (
     <div className='modal'>
         <div className='modal-wrap'>
-            <button onClick={()=>setModal(false)}>Close Modal</button>
+            <button className='btnModal' onClick={()=>setModal(false)}>Close Modal</button>
             <div className='form-group'>
-                <label>Expense Type</label>
-                <input onChange={handleEditFormChangeSam} value={editFormData.expenseType} type="text" name="expenseType" />
+                <label>Expense Type....</label>
+                <input className='modalInput' onChange={handleEditFormChangeSam} value={editFormData.expenseType} type="text" name="expenseType" />
             </div>
             <div className='form-group'>
-                <label>amount</label>
-                <input onChange={handleEditFormChangeSam} value={editFormData.amount} type="text" name="amount" />
+                <label>Amount.............</label>
+                <input className='modalInput' onChange={handleEditFormChangeSam} value={editFormData.amount} type="text" name="amount" />
             </div>
             <div className='form-group'>
-                 <label>date</label>
-                <input onChange={handleEditFormChangeSam} value={editFormData.date} type="text" name="date" />
+                 <label>Date...................</label>
+                <input className='modalInput' onChange={handleEditFormChangeSam} value={editFormData.date} type="text" name="date" />
             </div>
             <div className='form-group'>
-                <label>title</label>
-                <input onChange={handleEditFormChangeSam} value={editFormData.title} type="text" name="title" />
+                <label>Title...................</label>
+                <input className='modalInput' onChange={handleEditFormChangeSam} value={editFormData.title} type="text" name="title" />
             </div>
 
-            <button onClick={handleUpdate}>Update</button>
+            <button className='btnModal' onClick={handleUpdate}>Update</button>
         </div>
 
     </div>
