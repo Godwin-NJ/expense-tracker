@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate, } from "react-router-dom";
 import Modal from './Modal';
 import './displayExpenseData.css'
+// import { AiFillBackward } from "react-icons/ai";
 
 
 const DisplayExpenseData = () => {
@@ -245,12 +246,20 @@ const DisplayExpenseData = () => {
                 })}
             </tbody>
         </table>
+        
+        {/* <AiFillBackward 
+            style={{fontSize:'35px', 
+                   position: 'fixed',
+                   left: '125px',
+                    bottom: '35px'}}
+        /> */}
         <button 
             className='rtnExpense' 
             type="button" onClick={() =>navigate('/expense')}
         > 
             Expense Form
         </button>
+
     </div>
     )
 }
