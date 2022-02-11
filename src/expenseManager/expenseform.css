@@ -19,7 +19,7 @@ section.expenseFOrmCover {
     border: 1px solid black;
     width: 70vw;
     padding: 30px;
-    height: 35vh;
+    height: 38vh;
     /* border-radius: 5px; */
     background-color: rgb(169 187 233);
     /* flex-wrap:wrap */
@@ -51,11 +51,12 @@ section.expenseFOrmCover {
 .btnExpenseJournal-LogOut {
     border: 0px solid black;
     display: flex;
-    flex-direction: row;
-    gap: 220px;
+    flex-direction: column;
+    gap: 100px;
     justify-content: space-evenly;
-    margin: 10px auto;
-    padding: 25px;
+    margin: 0px auto;
+    padding-left: 170px;
+    padding-top: 30px;
 }
 
 .btnFooter {
@@ -72,6 +73,145 @@ section.expenseFOrmCover {
     color: white;
     background-color: blue;
 }
+
+/* @media (min-width:480px){
+    .btnExpenseJournal-LogOut{
+        padding-left: 150px;
+        padding-top: 30px;
+    }
+} */
+
+@media (min-width: 514px){
+.btnExpenseJournal-LogOut {
+    padding-left: 185px;
+    padding-left: 200px;
+    /* padding-top: 30px; */
+}
+}
+
+@media (min-width: 576px){
+.btnExpenseJournal-LogOut {
+    padding-left: 215px;
+    /* padding-top: 30px; */
+}
+}
+
+@media (min-width: 570px){
+.btnExpenseJournal-LogOut {
+    padding-left: 220px;
+    /* padding-top: 30px; */
+    }
+}
+
+@media (min-width:630px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 250px;
+    }
+}
+
+@media (min-width: 693px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 297px;
+    }
+}
+
+@media (min-width: 741px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 295px;
+    }
+}
+
+@media (min-width: 787px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 320px;
+    }
+}
+
+@media (min-width: 850px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 370px;
+    }
+}
+
+@media (min-width: 890px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 380px;
+    }
+}
+
+@media (min-width: 936px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 400px;
+    }
+}
+
+@media (min-width: 990px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 420px;
+    }
+}
+
+@media (min-width: 1010px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 438px;
+    }
+}
+@media (min-width: 1050px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 458px;
+    }
+}
+
+@media (min-width: 1100px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 488px;
+    }    
+}
+
+@media (min-width: 1170px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 518px;
+    }
+}
+
+@media (min-width: 1230px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 550px;
+    }
+}
+
+
+@media (min-width: 1517px){
+    .btnExpenseJournal-LogOut {
+        padding-left: 680px;
+    }
+    .expenseForm{
+        width: 50vw;
+        height: 45vh;
+    }
+    .expenseTitle{
+        /* position: fixed; */
+        /* top: 10px; */
+        margin-left: 350px;
+    }
+
+    .btnExpenseJournal-LogOut{
+        gap: 80px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
