@@ -7,8 +7,9 @@ table {
   td {
     border: 1px solid #ffffff;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
+    width: 35vw;
   }
   
   th {
@@ -36,3 +37,11 @@ table {
     /* overflow-y: scroll; */
     height: 88vh;
 }
+
+@media (min-width:880px){
+  th, td {
+    padding: 5px;
+    width: 35vw;
+  }
+}
+
