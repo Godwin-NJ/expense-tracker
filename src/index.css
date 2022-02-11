@@ -38,6 +38,11 @@ form * {
 *{
   margin: 0px;
   padding: 0px;
+  /* font: 16px Arial, sans-serif; */
+}
+
+body {
+  font: normal 16px Verdana, Arial, sans-serif;
 }
 
 body{
