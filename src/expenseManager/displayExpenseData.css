@@ -31,8 +31,8 @@ table {
 
   .scrollBehaviorTable {
     /* scroll-behavior: smooth; */
-    overflow-y: scroll;
+    overflow: scroll;
     display: block;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     height: 88vh;
 }
