@@ -64,7 +64,7 @@ const Login = () => {
                 />
                 </div>
                 {/* password  */}
-                <div className='inputDetails'>
+                <div className='inputDetails inputTwo'>
                 <label htmlFor="pasword" className='label'>Password</label>
                 <input 
                     className='loginIput' 
