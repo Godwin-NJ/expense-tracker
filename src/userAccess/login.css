@@ -44,17 +44,16 @@
 .loginBtn{
     padding: 10px;
     border-radius: 10px;
-    width: 325px;
+    width: 170px;
     background-color: #4169e1;
     color: #ffffff;
+    margin: 0 auto;
     /* width: 30%; */
 }
 
 
 @media (min-width:1025px){
-    .loginBtn{
-        margin-left: 50px;
-    }
+  
     .form{
         width: 35%;
     }
